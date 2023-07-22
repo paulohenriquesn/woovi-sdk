@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { CreateChargeCommand } from '../../../business/contexts/charge/commands/create';
-import { STAGES } from '../../../common/stages';
 import { badRequest, ok } from '../../../helpers/http';
+import { STAGES } from '../../../sdk';
 import { Gateway } from '../../protocols/gateway';
 import { httpResponse } from '../../protocols/http';
 

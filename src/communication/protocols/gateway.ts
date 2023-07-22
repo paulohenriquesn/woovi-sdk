@@ -1,4 +1,4 @@
-import { STAGES } from '../../common/stages';
+import { STAGES } from '../../sdk';
 import { httpResponse } from './http';
 
 export interface Gateway<I> {

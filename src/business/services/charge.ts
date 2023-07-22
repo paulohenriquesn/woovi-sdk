@@ -1,6 +1,6 @@
-import { STAGES } from '../../common/stages';
 import { Gateway } from '../../communication/protocols/gateway';
 import { httpResponse } from '../../communication/protocols/http';
+import { STAGES } from '../../sdk';
 import { Charge } from '../contexts/charge/charge';
 import { CreateChargeCommand } from '../contexts/charge/commands/create';
 
