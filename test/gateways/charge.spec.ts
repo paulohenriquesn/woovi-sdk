@@ -19,6 +19,6 @@ describe('Charge Context', () => {
             value: '0.00'
         }
         await service.create(bodyRequest)
-        expect(spyOnGateway).toHaveBeenCalledWith(bodyRequest)       
+        expect(spyOnGateway).toHaveBeenCalledWith(bodyRequest, 'fakeAuthorization', STAGES.DEVELOPMENT)       
     }) 
 })
