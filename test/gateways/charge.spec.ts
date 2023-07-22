@@ -1,11 +1,10 @@
 import { ChargeService } from '../../src/business/services/charge'
-import { STAGES } from '../../src/common/stages'
-import { makeFakeGatewayStub } from '../stubs/makeFakeGateway'
+import { fakeGatewayConfigs, makeFakeGatewayStub } from '../stubs/makeFakeGateway'
 
 const makeSut = () => {
     const fakeGatewayStub = makeFakeGatewayStub()
     return {
-        service: new ChargeService('fakeAuthorization', STAGES.DEVELOPMENT, fakeGatewayStub),
+        service: new ChargeService(fakeGatewayConfigs.AUTHORIZATION, fakeGatewayConfigs.STAGE, fakeGatewayStub),
         fakeGatewayStub
     }
 }
@@ -19,6 +18,6 @@ describe('Charge Context', () => {
             value: '0.00'
         }
         await service.create(bodyRequest)
-        expect(spyOnGateway).toHaveBeenCalledWith(bodyRequest, 'fakeAuthorization', STAGES.DEVELOPMENT)       
+        expect(spyOnGateway).toHaveBeenCalledWith(bodyRequest, fakeGatewayConfigs.AUTHORIZATION, fakeGatewayConfigs.STAGE)       
     }) 
 })

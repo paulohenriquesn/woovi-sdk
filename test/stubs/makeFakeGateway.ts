@@ -13,3 +13,8 @@ class FakeGateway implements Gateway<any> {
 export const makeFakeGatewayStub = (): Gateway<any> => {
     return new FakeGateway()
 }
+
+export const fakeGatewayConfigs = {
+    STAGE: STAGES.DEVELOPMENT,
+    AUTHORIZATION: 'fakeAuthorization'
+}
