@@ -1,4 +1,5 @@
 import { ChargeService } from '../../src/business/services/charge'
+import { ok } from '../../src/helpers/http'
 import { fakeGatewayConfigs, makeFakeGatewayStub } from '../stubs/makeFakeGateway'
 
 const makeSut = () => {
@@ -32,5 +33,18 @@ describe('Charge Context', () => {
 
         const response = service.create(bodyRequest)
         await expect(response).rejects.toThrow()
+    })
+
+    test('If create charge gateway returns ok service has to return too', async () => {
+        const { service, fakeGatewayStub } = makeSut()
+        jest.spyOn(fakeGatewayStub, 'execute').mockReturnValueOnce(Promise.resolve(ok()))
+        
+        const bodyRequest = {
+            correlationId: 'fakeCorrelationId',
+            value: '0.00'
+        }
+
+        const response = await service.create(bodyRequest)
+        expect(response.statusCode).toBe(200)
     })
 })  
