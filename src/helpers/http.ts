@@ -1,4 +1,4 @@
-import { httpResponse } from "../communication/protocols/http"
+import { httpResponse } from '../communication/protocols/http'
 
 export const badRequest = (params: any): httpResponse => {
     return {

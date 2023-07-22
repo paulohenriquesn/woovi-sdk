@@ -1,5 +1,5 @@
-import { httpResponse } from "../../../../communication/protocols/http"
-import { CHARGE_TYPE } from "../enums/type"
+import { httpResponse } from '../../../../communication/protocols/http'
+import { CHARGE_TYPE } from '../enums/type'
 
 export namespace CreateChargeCommand {
     export type Input = {
