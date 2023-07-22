@@ -1,3 +1,4 @@
+import { STAGES } from ".";
 import { ChargeService } from "../business/services/charge";
 import { CreateChargeGateway } from "../communication/gateways/charge/create";
 import { SDK } from "./protocol/sdk";

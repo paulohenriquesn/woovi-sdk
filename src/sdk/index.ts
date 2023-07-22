@@ -7,7 +7,9 @@ export enum STAGES {
     DEVELOPMENT = 'http://localhost:3000/'
 }
 
-export class WooviSDK {
+const Charge = (authorization: string, stage: STAGES) => new ChargeSDK(authorization, stage).service
+
+class WooviSDK {
     authorization: string
     stage: STAGES
 
@@ -17,6 +19,9 @@ export class WooviSDK {
     }
 
     public charge(): ChargeService {
-        return new ChargeSDK(this.authorization, this.stage).service
+        return Charge(this.authorization, this.stage)
     }
 }
+
+export { Charge, WooviSDK }
+
